@@ -12,7 +12,7 @@ class CreateSubjectsTable extends Migration
         Schema::create('subjects', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->foreignId('grade_id')->constrained();
+            $table->foreignId('class_id')->constrained();
             $table->timestamps();
             $table->softDeletes();
 

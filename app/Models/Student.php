@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Models\Classes;
 use App\Models\Gender;
-use App\Models\Grade;
+use App\Models\Mark;
 use App\Models\FatherQualification;
 use App\Models\FatherOccupation;
 use App\Models\MotherOccupation;
@@ -19,7 +19,7 @@ class Student extends Model
     use HasFactory;
 
     protected $fillable = [
-        'first_name', 'last_name', 'gender_id', 'mother_occupation_id','grade_id','class_id', 'father_occupation_id', 
+        'first_name', 'last_name', 'gender_id', 'mother_occupation_id','class_id', 'father_occupation_id', 
         'mother_qualification_id', 'father_qualification_id', 'monthly_income', 'discount','age_when_enrolled',
         'child_number_in_family','any_other_income','admission_fee','Student_Status'
     ];
@@ -29,10 +29,6 @@ class Student extends Model
     }
     public function classes() {
         return $this->belongsTo(Classes::class);
-    }
-
-    public function grade() {
-        return $this->belongsTo(Grade::class);
     }
     public function motherOccupation() {
         return $this->belongsTo(MotherOccupation::class);
@@ -50,14 +46,13 @@ class Student extends Model
         return $this->belongsTo(FatherQualification::class);
     }
 
-    public function grades() {
-        return $this->hasMany(Grade::class);
-    }
 
     public function attendances() {
         return $this->hasMany(Attendance::class);
     }
-
+    public function marks() {
+        return $this->hasMany(Mark::class);
+    }
     public function fees() {
         return $this->hasMany(Fee::class);
     }

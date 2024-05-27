@@ -14,6 +14,7 @@ class CreateMarksTable extends Migration
             $table->foreignId('subject_id')->constrained();
             $table->decimal('midterm_marks', 5, 2);
             $table->decimal('final_marks', 5, 2);
+            $table->string('Grade',);
             $table->timestamps();
             $table->softDeletes();
 

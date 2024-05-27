@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Batch;
 use App\Models\Teachers;
+use App\Models\Subject;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 
@@ -23,6 +24,9 @@ class Classes extends Model
     public function teacher()
     {
         return $this->belongsTo(Teachers::class);
+    }
+    public function subjects(){
+        return $this->hasMany(Subject::class);
     }
     use SoftDeletes;
 }

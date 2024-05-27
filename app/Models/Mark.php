@@ -13,7 +13,7 @@ class Mark extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['student_id', 'subject_id', 'midterm_marks', 'final_marks'];
+    protected $fillable = ['student_id', 'subject_id', 'midterm_marks', 'final_marks','Grade'];
 
     public function student() {
         return $this->belongsTo(Student::class);
@@ -21,6 +21,9 @@ class Mark extends Model
 
     public function subject() {
         return $this->belongsTo(Subject::class);
+    }
+    public function grades() {
+        return $this->belongsTo(Grade::class);
     }
 
   

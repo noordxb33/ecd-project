@@ -12,11 +12,9 @@ class Grade extends Model
     use HasFactory;
     protected $fillable = ['name','grade_disc','grade_status'];
 
-    public function students(){
-        return $this->hasMany(Student::class);
+    public function Marks(){
+        return $this->hasMany(Mark::class);
     }
-    public function subjects(){
-        return $this->hasMany(Subject::class);
-    }
+  
     use SoftDeletes;
 }
