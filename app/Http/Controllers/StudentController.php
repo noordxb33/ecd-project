@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Student;
 use App\Services\PromotionService;
 use Illuminate\Http\Request;
-
 class StudentController extends Controller
 {
     protected $promotionService;
@@ -17,33 +16,37 @@ class StudentController extends Controller
 
     public function index()
     {
-        return Student::all();
+        $student = Student::all();
+        foreach($student as $st){
+            $st->label=$st->first_name;
+        }
+        return response()->json($student,200);
     }
 
     public function store(Request $request)
     {
 
         
-        $request->validate([
-            'first_name' => 'required|string',
-            'last_name' => 'required|string',
-            'gender_id' => 'required|string',
-            'mother_occupation_id' => 'required|string',
-            'grade_id' => 'required|string',
-            'class_id' => 'required|string',
-            'father_occupation_id' => 'required|string',
-            'mother_qualification_id' => 'required|string',
-            'father_qualification_id' => 'required|string',
-            'monthly_income' => 'required|string',
-            'discount' => 'required|string',
-            'age_when_enrolled' => 'required|string',
-            'child_number_in_family' => 'required|string',
-            'any_other_income' => 'required|string',
-            'admission_fee' => 'required|string',
-            'Student_Status' => 'required|string',
+        // $request->validate([
+        //     'first_name' => 'required|string',
+        //     'last_name' => 'required|string',
+        //     'gender_id' => 'required|string',
+        //     'mother_occupation_id' => 'required|string',
+        //     'grade_id' => 'required|string',
+        //     'class_id' => 'required|string',
+        //     'father_occupation_id' => 'required|string',
+        //     'mother_qualification_id' => 'required|string',
+        //     'father_qualification_id' => 'required|string',
+        //     'monthly_income' => 'required|string',
+        //     'discount' => 'required|string',
+        //     'age_when_enrolled' => 'required|string',
+        //     'child_number_in_family' => 'required|string',
+        //     'any_other_income' => 'required|string',
+        //     'admission_fee' => 'required|string',
+        //     'Student_Status' => 'required|string',
      
     
-        ]);
+        // ]);
         
         $student = Student::create($request->all());
         return response()->json($student, 201);

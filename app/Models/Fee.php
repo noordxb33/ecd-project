@@ -10,7 +10,7 @@ class Fee extends Model
 {
     use HasFactory;
  
-    protected $fillable = ['student_id', 'month_id', 'year', 'amount'];
+    protected $fillable = ['student_id', 'month_id', 'year_id', 'amount'];
 
     public function student() {
         return $this->belongsTo(Student::class);

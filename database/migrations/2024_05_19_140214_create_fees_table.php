@@ -16,6 +16,8 @@ class CreateFeesTable extends Migration
             $table->foreign('student_id')->references('id')->on('students')->onDelete('cascade');
             $table->unsignedBigInteger('month_id');
             $table->foreign('month_id')->references('id')->on('months')->onDelete('cascade');
+            $table->unsignedBigInteger('year_id');
+            $table->foreign('year_id')->references('id')->on('years')->onDelete('cascade');
             $table->timestamps();
             $table->softDeletes();
 

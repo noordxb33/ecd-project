@@ -1,4 +1,5 @@
 <?php
+<<<<<<< Updated upstream
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\LabController;
 use App\Http\Controllers\SectionController;
@@ -18,6 +19,24 @@ use App\Http\Controllers\SpecificStudentIDcardController;
 use App\Http\Controllers\ScopeBPLController;
 
 use Illuminate\Support\Facades\Route;
+=======
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\YearController;
+use App\Http\Controllers\MonthController;
+use App\Http\Controllers\FeeController;
+use App\Http\Controllers\StudentController;
+/*
+|--------------------------------------------------------------------------
+| API Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register API routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| is assigned the "api" middleware group. Enjoy building your API!
+|
+*/
+// Route::get('/year', [YearController::class, 'store']);
+>>>>>>> Stashed changes
 
  
  
@@ -31,7 +50,23 @@ use Illuminate\Support\Facades\Route;
     
     );
 
+<<<<<<< Updated upstream
   
+=======
+Route::prefix('ECD')->group(function () {
+    Route::resources([
+        'Year' => YearController::class,
+        'Month' => MonthController::class,
+        'Fee' => FeeController::class,
+        'Student' => StudentController::class,
+    ]);
+
+
+Route::group(['middleware' => 'auth:sanctum'], function () {
+    //All secure URL's
+   
+    //     Route::get('get_loan_bill_number', [LoanController::class, 'get_bill']);
+>>>>>>> Stashed changes
     //     Route::post('all_data', [AuthController::class, 'all_data']);
     
     //     // Route::get('/Accounts_and_Companies', [CashAccountsController::class, 'get_company_and_cash_accounts']);
