@@ -1,7 +1,6 @@
 <?php
 
-
-
+use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\YearController;
 use App\Http\Controllers\MonthController;
@@ -17,7 +16,7 @@ use App\Http\Controllers\MonthController;
 */
 // Route::get('/year', [YearController::class, 'store']);
 
-
+Route::group(['middleware' => 'auth:sanctum'], function () {
 Route::prefix('ECD')->group(function () {
     Route::resources([
         'Year' => YearController::class,
@@ -40,3 +39,8 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
 });
 
 });
+});
+
+
+
+ Route::post('/Login', [AuthController::class, 'login']);
