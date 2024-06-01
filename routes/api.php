@@ -4,7 +4,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\YearController;
-use App\Http\Controllers\FatherOccupationController;
+use App\Http\Controllers\MonthController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -21,7 +21,7 @@ use App\Http\Controllers\FatherOccupationController;
 Route::prefix('ECD')->group(function () {
     Route::resources([
         'Year' => YearController::class,
-        'FatherOccupation' => FatherOccupationController::class,
+        'Month' => MonthController::class,
 
     ]);
 

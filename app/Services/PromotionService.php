@@ -3,7 +3,7 @@
 
 namespace App\Services;
 use App\Models\Student;
-use App\Models\Grade;
+use App\Models\Classes;
 
 class PromotionService
 {
@@ -16,10 +16,10 @@ class PromotionService
         })->count();
 
         if ($passedSubjects / $totalSubjects >= 0.60) {
-            $currentGrade = $student->grade;
-            $nextGrade = Grade::where('id', '>', $currentGrade->id)->first();
-            if ($nextGrade) {
-                $student->grade()->associate($nextGrade);
+            $currentClass = $student->classes;
+            $nextClass = Classes::where('id', '>', $currentClass->id)->first();
+            if ($nextClass) {
+                $student->classes()->associate($nextClass);
                 $student->save();
             }
         }

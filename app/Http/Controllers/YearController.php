@@ -12,8 +12,11 @@ class YearController extends Controller
      */
     public function index()
     {
-        $year = Year::all();
-        return response()->json($year);
+        $years = Year::all();
+        foreach($years as $sal){
+            $sal->label=$sal->year;
+        }
+        return response()->json($years,200);
         //
     }
 
