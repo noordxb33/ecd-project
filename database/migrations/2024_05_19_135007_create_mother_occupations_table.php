@@ -9,7 +9,7 @@ class CreateMotherOccupationsTable extends Migration
     {
         Schema::create('mother_occupations', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('MotherOccupation');
             $table->timestamps();
             $table->softDeletes();
             
