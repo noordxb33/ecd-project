@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\GenderController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\YearController;
 use App\Http\Controllers\MonthController;
@@ -24,6 +25,7 @@ Route::prefix('ECD')->group(function () {
         'Year' => YearController::class,
         'Month' => MonthController::class,
         'MotherOccupation' =>MotherOccupationController::class,
+        'Gender' =>GenderController::class,
         
 
     ]);
